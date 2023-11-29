@@ -3,22 +3,22 @@
 
 int main() {
     double num1, num2, result;
-    char operator;
+    char operator[100];
 
     
-    printf("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ");
+    printf("ìˆ«ìë¥¼ ì…ë ¥í•˜ì„¸ìš”: ");
     scanf("%lf", &num1);
 
-    printf("¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä (+, -, *, /, log, cos, sin, tan): ");
-    scanf(" %c", &operator);
+    printf("ì—°ì‚°ìë¥¼ ì…ë ¥í•˜ì„¸ìš” (+, -, *, /, log, cos, sin, tan): ");
+    scanf(" %s", &operator1);
 
-    if (operator != 'log' && operator != 'cos' && operator != 'sin' && operator != 'tan') {
-        printf("¼ıÀÚ¸¦ ÇÏ³ª ´õ ÀÔ·ÂÇÏ¼¼¿ä: ");
+    if (operator1 != "log" && operator1 != "cos" && operator1 != "sin" && operator1 != "tan") {
+        printf("ìˆ«ìë¥¼ í•˜ë‚˜ ë” ì…ë ¥í•˜ì„¸ìš”: ");
         scanf("%lf", &num2);
     }
 
     
-    switch (operator) {
+    switch (operator1[100]) {
         case '+':
             result = num1 + num2;
             break;
@@ -32,7 +32,7 @@ int main() {
             if (num2 != 0) {
                 result = num1 / num2;
             } else {
-                printf("0À¸·Î´Â ³ª´­ ¼ö ¾ø½À´Ï´Ù.\n");
+                printf("0ìœ¼ë¡œëŠ” ë‚˜ëˆŒ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
                 return 1; 
             }
             break;
@@ -49,14 +49,14 @@ int main() {
             result = tan(num1);
             break;
         default:
-            printf("Á¦´ë·Î ÀÔ·ÂÇÏ¼¼¿ä.\n");
+            printf("ì œëŒ€ë¡œ ì…ë ¥í•˜ì„¸ìš”.\n");
             return 1; 
     }
 
-    if (operator == 'log' || operator == 'cos' || operator == 'sin' || operator == 'tan') {
-        printf("°è»ê °á°ú: %.2lf\n", result);
+    if (operator1[100] == 'log' || operator1[100] == 'cos' || operator1[100] == 'sin' || operator1[100] == 'tan') {
+        printf("ê³„ì‚° ê²°ê³¼: %.2lf\n", result);
     } else {
-        printf("°è»ê °á°ú: %.2lf %c %.2lf = %.2lf\n", num1, operator, num2, result);
+        printf("ê³„ì‚° ê²°ê³¼: %.2lf %c %.2lf = %.2lf\n", num1, operator1[100], num2, result);
     }
 
     return 0;
